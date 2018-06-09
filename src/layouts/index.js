@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 
-import Header from '../components/header'
-import Footer from '../components/footer'
-import './index.css'
-import '../styles/layout-overide.css'
+import Header from '../components/header';
+import Footer from '../components/footer';
+import './index.css';
+import '../styles/layout-overide.css';
 
 const Layout = ({ children, data }) => (
   <div>
@@ -20,13 +20,13 @@ const Layout = ({ children, data }) => (
     <div className="main-content">{children()}</div>
     <Footer />
   </div>
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.func,
-}
+};
 
-export default Layout
+export default Layout;
 
 export const query = graphql`
   query SiteTitleQuery {
@@ -36,4 +36,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

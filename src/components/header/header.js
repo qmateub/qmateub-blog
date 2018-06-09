@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
-// import Logo from '../../assets/qmlogo.png';
 import Portrait from '../../assets/mesa.jpg';
 import styles from './header.module.css';
 

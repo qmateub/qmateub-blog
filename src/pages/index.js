@@ -1,6 +1,6 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import styles from './index.module.css'
+import React from 'react';
+import Link from 'gatsby-link';
+import styles from './index.module.css';
 
 const IndexPage = () => (
   <div className={styles.main}>
@@ -20,6 +20,6 @@ const IndexPage = () => (
       </div>
     </div>
   </div>
-)
+);
 
-export default IndexPage
+export default IndexPage;
