@@ -37,5 +37,6 @@ module.exports = {
     'react/prefer-es6-class': 1,
     'react/jsx-no-bind': 1,
     'no-multiple-empty-lines': [2, { max: 2, maxEOF: 2 }],
+    'no-console': 0,
   },
 };

@@ -7,8 +7,11 @@
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.9.1",
     "gatsby": "^1.9.247",
+    "gatsby-image": "^1.0.52",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
+    "gatsby-source-filesystem": "^1.5.38",
+    "gatsby-transformer-remark": "^1.7.42",
     "react-helmet": "^5.2.0",
     "react-social-icons": "^3.0.0"
   },
