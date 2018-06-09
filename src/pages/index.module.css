@@ -1,0 +1,22 @@
+.main {
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-img {
+  border-radius: 50%;
+  height: 300px;
+}
+
+.container div {
+  margin-left: 20px;
+}
+
+.description {
+  align-self: center;
+}
