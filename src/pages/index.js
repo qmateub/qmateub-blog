@@ -14,6 +14,7 @@ const IndexPage = () => (
             ', which I loved, specially the journey from when you start learning something to ' +
             'the point that you become really good at that something.'}
         </p>
+        <p>Sporadic Volleyball Player 🏐</p>
       </div>
     </div>
   </div>
