@@ -20,6 +20,7 @@ ListLink.propTypes = {
 export const Menu = () => (
   <div className={styles.menubar}>
     <ListLink to="/">Home</ListLink>
+    <ListLink to="/posts">Posts</ListLink>
     <ListLink to="/about">About</ListLink>
   </div>
 );
