@@ -6,47 +6,40 @@
 
 // You can delete this file if you're not using it
 const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators;
-  if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({ node, getNode, basePath: 'pages' });
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug,
-    });
-  }
-};
-
+// eslint-disable-next-line
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
-  return new Promise(resolve => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
+  return new Promise((resolve, reject) => {
+    const blogPostTemplate = path.resolve('src/templates/blog-post.js');
+    resolve(
+      graphql(`
+        {
+          allContentfulPost(limit: 100) {
+            edges {
+              node {
+                id
                 slug
               }
             }
           }
         }
-      }
-    `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve('./src/templates/blog-post.js'),
-          context: {
-            // Data passed to context is available in page queries as GraphQL variables.
-            slug: node.fields.slug,
-          },
+      `).then(result => {
+        if (result.errors) {
+          reject(result.errors);
+        }
+        if (!result.data) return;
+        result.data.allContentfulPost.edges.forEach(edge => {
+          createPage({
+            path: edge.node.slug,
+            component: blogPostTemplate,
+            context: {
+              slug: edge.node.slug,
+            },
+          });
         });
-      });
-      resolve();
-    });
+        return;
+      })
+    );
   });
 };

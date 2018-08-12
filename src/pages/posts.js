@@ -12,28 +12,28 @@ const Posts = ({ data }) => (
         justifyContent: 'center',
       }}
     >
-      {data.allMarkdownRemark.edges.map(({ node }) => (
+      {data.allContentfulPost.edges.map(({ node }) => (
         <Card key={node.id} node={node} />
       ))}
     </div>
   </div>
 );
 
-export const query = graphql`
-  query IndexQuery {
-    allMarkdownRemark(skip: 0, limit: 2) {
-      totalCount
+// eslint-disable-next-line
+export const pageQuery = graphql`
+  query pageQuery {
+    allContentfulPost(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: [createdAt], order: DESC }
+    ) {
       edges {
         node {
           id
-          frontmatter {
+          title {
             title
-            date(formatString: "DD MMMM, YYYY")
           }
-          fields {
-            slug
-          }
-          excerpt
+          slug
+          createdAt(formatString: "MMMM DD, YYYY")
         }
       }
     }

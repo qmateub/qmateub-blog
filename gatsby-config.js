@@ -1,17 +1,19 @@
+require('dotenv').config({ path: '.env' });
+
 module.exports = {
   siteMetadata: {
     title: 'Quique Mateu Blog',
   },
   plugins: [
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-source-contentful',
       options: {
-        name: 'src',
         // eslint-disable-next-line
-        path: `${__dirname}/src/`,
+        spaceId: process.env.SPACE_ID,
+        // eslint-disable-next-line
+        accessToken: process.env.ACCESS_TOKEN,
       },
     },
-    'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
   ],
 };

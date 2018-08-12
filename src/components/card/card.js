@@ -4,9 +4,9 @@ import styles from './card.module.css';
 
 export const Card = ({ node }) => (
   <div className={styles.container}>
-    <Link to={node.fields.slug} className={styles.link}>
-      <div className={styles.title}>{node.frontmatter.title}</div>
-      <div className={styles.date}>{node.frontmatter.date}</div>
+    <Link to={node.slug} className={styles.link}>
+      <div className={styles.title}>{node.title.title}</div>
+      <div className={styles.date}>{node.createdAt}</div>
       <div>Read it 👀...</div>
     </Link>
   </div>

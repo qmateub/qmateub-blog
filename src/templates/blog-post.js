@@ -2,23 +2,28 @@ import React from 'react';
 import Link from 'gatsby-link';
 
 export default ({ data }) => {
-  const post = data.markdownRemark;
+  const { title, createdAt, body } = data.contentfulPost;
   return (
     <div>
-      <h1>{post.frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <Link to="/">👈 Go back</Link>
+      <Link to="/">Go back</Link>
+      <h1>{title.title}</h1>
+      <p>{createdAt}</p>
+      {body.body}
     </div>
   );
 };
 
 // eslint-disable-next-line
-export const query = graphql`
-  query BlogPostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
+export const pageQuery = graphql`
+  query postQuery($slug: String!) {
+    contentfulPost(slug: { eq: $slug }) {
+      title {
         title
+      }
+      createdAt(formatString: "MMMM DD, YYYY")
+      body {
+        id
+        body
       }
     }
   }
