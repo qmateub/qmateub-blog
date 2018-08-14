@@ -14,7 +14,7 @@ export const SocialNetworkBar = () => (
     <SocialIcon
       network="twitter"
       url={urls[0]}
-      style={{ height: 40, width: 40, marginLeft: '25px' }}
+      style={{ height: 40, width: 40 }}
     />
     <SocialIcon
       network="linkedin"

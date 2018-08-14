@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-
 import Header from '../components/header';
 import Footer from '../components/footer';
 import './index.css';
@@ -28,6 +27,7 @@ Layout.propTypes = {
 
 export default Layout;
 
+// eslint-disable-next-line
 export const query = graphql`
   query SiteTitleQuery {
     site {
