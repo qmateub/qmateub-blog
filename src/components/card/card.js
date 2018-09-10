@@ -7,7 +7,6 @@ export const Card = ({ node }) => (
     <Link to={node.slug} className={styles.link}>
       <div className={styles.title}>{node.title.title}</div>
       <div className={styles.date}>{node.createdAt}</div>
-      <div>Read it 👀...</div>
     </Link>
   </div>
 );

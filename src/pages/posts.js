@@ -6,16 +6,9 @@ const Posts = ({ data }) => (
   <div>
     <Link to="/">👈 Go back</Link>
     <p>Check some of the posts!</p>
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
-      {data.allContentfulPost.edges.map(({ node }) => (
-        <Card key={node.id} node={node} />
-      ))}
-    </div>
+    {data.allContentfulPost.edges.map(({ node }) => (
+      <Card key={node.id} node={node} />
+    ))}
   </div>
 );
 

@@ -5,7 +5,7 @@ export default ({ data }) => {
   const { title, createdAt, body } = data.contentfulPost;
   return (
     <div>
-      <Link to="/">Go back</Link>
+      <Link to="/posts">Go back</Link>
       <h1>{title.title}</h1>
       <p>{createdAt}</p>
       {body.body}
