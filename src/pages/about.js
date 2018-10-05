@@ -1,29 +1,31 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
+import Layout from '../components/layout';
 
 const SecondPage = ({ data }) => {
   console.log(data);
   const author = data.allContentfulAuthor.edges[0].node;
   return (
-    <div>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: author.biography.childMarkdownRemark.html,
-        }}
-      />
-      <img
-        src={author.profilePhoto.file.url}
-        alt={author.name}
-        height="200"
-        width="200"
-      />
-      <br/>
-      <Link to="/">Go back to the homepage👈</Link>
-    </div>
+    <Layout>
+      <div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: author.biography.childMarkdownRemark.html,
+          }}
+        />
+        <img
+          src={author.profilePhoto.file.url}
+          alt={author.name}
+          height="200"
+          width="200"
+        />
+        <br />
+        <Link to="/">Go back to the homepage👈</Link>
+      </div>
+    </Layout>
   );
 };
 
-// eslint-disable-next-line
 export const authorQuery = graphql`
   query authorQuery {
     allContentfulAuthor(

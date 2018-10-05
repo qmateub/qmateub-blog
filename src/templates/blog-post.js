@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
 
 export default ({ data }) => {
   const { title, createdAt, body } = data.contentfulPost;
@@ -13,7 +13,6 @@ export default ({ data }) => {
   );
 };
 
-// eslint-disable-next-line
 export const pageQuery = graphql`
   query postQuery($slug: String!) {
     contentfulPost(slug: { eq: $slug }) {

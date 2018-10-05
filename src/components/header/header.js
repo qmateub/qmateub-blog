@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import Portrait from '../../assets/mesa.jpg';
 import styles from './header.module.css';
 
@@ -26,8 +26,8 @@ export const Menu = () => (
 );
 
 export const Header = ({ title }) => (
-  <div className={styles['header-container']}>
-    <div className={styles['logo-container']}>
+  <div className={styles.headerContainer}>
+    <div className={styles.logoContainer}>
       <img src={Portrait} className={styles.image} alt="logo" />
       <Link to="/" className={styles.title}>
         <h3>{title}</h3>
