@@ -14,6 +14,7 @@ module.exports = {
         accessToken: process.env.ACCESS_TOKEN,
       },
     },
+    'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
   ],
 };
