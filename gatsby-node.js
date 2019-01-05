@@ -31,7 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
         if (!result.data) return;
         result.data.allContentfulPost.edges.forEach(edge => {
           createPage({
-            path: edge.node.slug,
+            path: `posts/${edge.node.slug}`,
             component: blogPostTemplate,
             context: {
               slug: edge.node.slug,

@@ -1,9 +1,6 @@
-.main-content * {
+.main-content {
   text-align: justify;
-  max-width: 900px;
-  padding: 10px;
-  align-items: center;
-  margin: 0 auto;
+  padding: 20px;
 }
 
 html {

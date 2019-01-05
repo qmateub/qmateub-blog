@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 const SecondPage = ({ data }) => {
-  console.log(data);
   const author = data.allContentfulAuthor.edges[0].node;
   return (
     <Layout>
@@ -12,6 +11,7 @@ const SecondPage = ({ data }) => {
           dangerouslySetInnerHTML={{
             __html: author.biography.childMarkdownRemark.html,
           }}
+          style={{ padding: 0 }}
         />
         <img
           src={author.profilePhoto.file.url}

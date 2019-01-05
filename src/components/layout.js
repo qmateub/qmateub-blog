@@ -1,6 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
+import PageTransition from 'gatsby-plugin-page-transitions';
+import { Location } from '@reach/router';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import '../layouts/index.css';
@@ -16,11 +18,11 @@ const query = graphql`
   }
 `;
 
-export default ({ children }) => (
+const Layout = ({ children }) => (
   <StaticQuery
     query={query}
     render={data => (
-      <div>
+      <React.Fragment>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -28,10 +30,19 @@ export default ({ children }) => (
             { name: 'keywords', content: 'blog, react' },
           ]}
         />
-        <Header title={'qmateub'} />
-        <div className="main-content">{children}</div>
+        <Location>
+          {({ location }) => <Header title="qmateub" location={location} />}
+        </Location>
+        <div className="main-content">
+          <PageTransition>
+            <div>{children}</div>
+          </PageTransition>
+        </div>
         <Footer />
-      </div>
+      </React.Fragment>
     )}
   />
 );
+Layout.displayName = 'Layout';
+
+export default Layout;

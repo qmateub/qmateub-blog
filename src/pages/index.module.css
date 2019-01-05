@@ -1,18 +1,11 @@
-.main {
-  margin: 0 auto;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .container-img {
   border-radius: 50%;
   height: 300px;
 }
 
-.description {
-  align-self: center;
+.pageBottomSpacer {
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
 }
+

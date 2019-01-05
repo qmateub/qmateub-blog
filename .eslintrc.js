@@ -12,6 +12,7 @@ module.exports = {
   },
   extends: 'eslint:recommended',
   parserOptions: {
+    ecmaVersion: 2018,
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
       jsx: true,
@@ -19,6 +20,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
+  parser: 'babel-eslint',
   plugins: ['react'],
   rules: {
     indent: ['error', 2],
@@ -34,6 +36,7 @@ module.exports = {
     'react/jsx-wrap-multilines': 1,
     'react/react-in-jsx-scope': 1,
     'react/prefer-es6-class': 1,
+    'react/display-name': 1,
     'react/jsx-no-bind': 0,
     'no-multiple-empty-lines': [2, { max: 2, maxEOF: 2 }],
     'no-console': 0,
