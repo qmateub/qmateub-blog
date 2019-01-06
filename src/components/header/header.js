@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import classnames from 'classnames';
 import Portrait from '../../assets/mesa.jpg';
 import styles from './header.module.css';
 
 const ListLink = props => (
   <div className={styles.item}>
-    <Link
+    <AniLink
+      fade
       to={props.to}
       className={classnames(styles.menu, {
         [styles.menuItemActive]: props.isActive,
       })}
     >
       {props.children}
-    </Link>
+    </AniLink>
   </div>
 );
 
@@ -43,9 +44,9 @@ export const Header = ({ title, location }) => {
     <div className={styles.headerContainer}>
       <div className={styles.logoContainer}>
         <img src={Portrait} className={styles.image} alt="logo" />
-        <Link to="/" className={styles.title}>
+        <AniLink fade to="/" className={styles.title}>
           <h3>{title}</h3>
-        </Link>
+        </AniLink>
       </div>
       <Menu activeRoute={location.pathname} />
     </div>

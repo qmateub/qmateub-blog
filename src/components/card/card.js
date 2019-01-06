@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import styles from './card.module.css';
 
 export const Card = ({ node }) => {
@@ -7,12 +7,16 @@ export const Card = ({ node }) => {
   return (
     <div className={styles.top}>
       <div className={styles.container}>
-        <Link to={`posts/${localizedNode.slug}`} className={styles.link}>
+        <AniLink
+          fade
+          to={`posts/${localizedNode.slug}`}
+          className={styles.link}
+        >
           <h2 className={styles.title}>{localizedNode.title.title}</h2>
           <div className={styles.date}>{localizedNode.createdAt}</div>
           <p>{localizedNode.textPreview.textPreview}</p>
-        </Link>
-        <Link to={`posts/${localizedNode.slug}`}>
+        </AniLink>
+        <AniLink fade to={`posts/${localizedNode.slug}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -21,7 +25,7 @@ export const Card = ({ node }) => {
           >
             <path d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z" />
           </svg>
-        </Link>
+        </AniLink>
       </div>
     </div>
   );

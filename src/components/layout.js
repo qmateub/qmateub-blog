@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
-import PageTransition from 'gatsby-plugin-page-transitions';
 import { Location } from '@reach/router';
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -33,11 +32,7 @@ const Layout = ({ children }) => (
         <Location>
           {({ location }) => <Header title="qmateub" location={location} />}
         </Location>
-        <div className="main-content">
-          <PageTransition>
-            <div>{children}</div>
-          </PageTransition>
-        </div>
+        <div className="main-content">{children}</div>
         <Footer />
       </React.Fragment>
     )}
